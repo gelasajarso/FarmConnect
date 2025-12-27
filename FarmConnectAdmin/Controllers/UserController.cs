@@ -3,6 +3,11 @@ using Microsoft.EntityFrameworkCore;
 using FarmConnectAdmin.Data;
 using FarmConnectAdmin.Models;
 
+public class UserController : Controller
+{
+}
+
+
 namespace FarmConnectAdmin.Controllers
 {
     public class UserController : Controller

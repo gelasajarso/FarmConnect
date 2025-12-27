@@ -150,6 +150,7 @@ C:\Users\HP\Desktop\FarmConnect\FarmConnectAdmin\obj\Debug\net10.0\FarmConnectAd
 C:\Users\HP\Desktop\FarmConnect\FarmConnectAdmin\obj\Debug\net10.0\FarmConnectAdmin.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\HP\Desktop\FarmConnect\FarmConnectAdmin\obj\Debug\net10.0\FarmConnectAdmin.RazorAssemblyInfo.cache
 C:\Users\HP\Desktop\FarmConnect\FarmConnectAdmin\obj\Debug\net10.0\FarmConnectAdmin.RazorAssemblyInfo.cs
+C:\Users\HP\Desktop\FarmConnect\FarmConnectAdmin\obj\Debug\net10.0\FarmConnectAdmin.sourcelink.json
 C:\Users\HP\Desktop\FarmConnect\FarmConnectAdmin\obj\Debug\net10.0\rjimswa.dswa.cache.json
 C:\Users\HP\Desktop\FarmConnect\FarmConnectAdmin\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
 C:\Users\HP\Desktop\FarmConnect\FarmConnectAdmin\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
