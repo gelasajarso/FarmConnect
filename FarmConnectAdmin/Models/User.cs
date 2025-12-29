@@ -1,4 +1,3 @@
-using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace FarmConnectAdmin.Models
@@ -8,7 +7,6 @@ namespace FarmConnectAdmin.Models
         public int Id { get; set; }
 
         [Required]
-        [StringLength(100)]
         public string FullName { get; set; }
 
         [Required]
@@ -16,9 +14,10 @@ namespace FarmConnectAdmin.Models
         public string Email { get; set; }
 
         [Required]
-        public string Role { get; set; } // Farmer, Buyer, Driver
+        public string Role { get; set; }
 
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        // ✅ NULL-SAFE
+        public DateTime? CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
     }
 }

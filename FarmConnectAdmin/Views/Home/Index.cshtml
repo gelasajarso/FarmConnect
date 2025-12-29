@@ -1,8 +1,33 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿<h2>Admin Dashboard</h2>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome Team!</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="row mt-4">
+    <div class="col-md-6">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">User Management</h5>
+                <p class="card-text">
+                    Manage farmers, buyers, and logistics partners.
+                </p>
+                <a asp-controller="User" asp-action="Index"
+                   class="btn btn-primary">
+                    Manage Users
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Product Management</h5>
+                <p class="card-text">
+                    Manage agricultural product listings.
+                </p>
+                <a asp-controller="Product" asp-action="Index"
+                   class="btn btn-success">
+                    Manage Products
+                </a>
+            </div>
+        </div>
+    </div>
 </div>

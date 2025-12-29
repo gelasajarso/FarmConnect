@@ -1,6 +1,60 @@
 ﻿@{
     ViewData["Title"] = "Privacy Policy";
 }
-<h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-9">
+            <div class="card shadow-sm border-0 rounded-4">
+                <div class="card-body p-5">
+
+                    <h1 class="mb-3 text-success fw-bold">
+                        @ViewData["Title"]
+                    </h1>
+
+                    <p class="text-muted mb-4">
+                        Your privacy is important to us. This policy explains how FarmConnect Admin
+                        collects, uses, and protects your information.
+                    </p>
+
+                    <hr class="mb-4" />
+
+                    <h5 class="fw-semibold">1. Information We Collect</h5>
+                    <p class="text-muted">
+                        We may collect personal information such as names, email addresses,
+                        phone numbers, and system usage data to improve platform functionality.
+                    </p>
+
+                    <h5 class="fw-semibold mt-3">2. How We Use Your Information</h5>
+                    <p class="text-muted">
+                        Collected data is used to manage users, improve services, enhance security,
+                        and support agricultural transactions within FarmConnect.
+                    </p>
+
+                    <h5 class="fw-semibold mt-3">3. Data Security</h5>
+                    <p class="text-muted">
+                        We implement appropriate technical and organizational measures to protect
+                        your data against unauthorized access, loss, or misuse.
+                    </p>
+
+                    <h5 class="fw-semibold mt-3">4. Third-Party Services</h5>
+                    <p class="text-muted">
+                        FarmConnect may integrate trusted third-party services for payments,
+                        notifications, or analytics. These services follow their own privacy policies.
+                    </p>
+
+                    <h5 class="fw-semibold mt-3">5. Policy Updates</h5>
+                    <p class="text-muted">
+                        This privacy policy may be updated periodically. Continued use of the platform
+                        indicates acceptance of the revised policy.
+                    </p>
+
+                    <div class="alert alert-light border mt-4 small text-muted">
+                        Last updated: <strong>@DateTime.Now.ToString("MMMM yyyy")</strong>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

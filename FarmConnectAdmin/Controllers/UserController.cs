@@ -3,11 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using FarmConnectAdmin.Data;
 using FarmConnectAdmin.Models;
 
-public class UserController : Controller
-{
-}
-
-
 namespace FarmConnectAdmin.Controllers
 {
     public class UserController : Controller
@@ -28,10 +23,12 @@ namespace FarmConnectAdmin.Controllers
         // READ: User details
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null) return NotFound();
+            if (id == null)
+                return NotFound();
 
             var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == id);
-            if (user == null) return NotFound();
+            if (user == null)
+                return NotFound();
 
             return View(user);
         }
@@ -47,60 +44,83 @@ namespace FarmConnectAdmin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(User user)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
+                return View(user);
+
+            bool emailExists = await _context.Users
+                .AnyAsync(u => u.Email == user.Email);
+
+            if (emailExists)
             {
-                _context.Add(user);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                ModelState.AddModelError(
+                    "Email",
+                    "This email is already registered with another role."
+                );
+                return View(user);
             }
-            return View(user);
+
+            user.CreatedAt = DateTime.Now;
+            user.UpdatedAt = DateTime.Now;
+
+            _context.Users.Add(user);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
         }
 
         // UPDATE: Show edit form
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null) return NotFound();
+            if (id == null)
+                return NotFound();
 
             var user = await _context.Users.FindAsync(id);
-            if (user == null) return NotFound();
+            if (user == null)
+                return NotFound();
 
             return View(user);
         }
 
-        // UPDATE: Save changes
+        // UPDATE: Save changes (UPDATED – EDGE CASE HANDLED)
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, User user)
         {
-            if (id != user.Id) return NotFound();
+            if (id != user.Id)
+                return NotFound();
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
+                return View(user);
+
+            bool emailExists = await _context.Users.AnyAsync(u =>
+                u.Email == user.Email && u.Id != user.Id);
+
+            if (emailExists)
             {
-                try
-                {
-                    user.UpdatedAt = DateTime.Now;
-                    _context.Update(user);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!_context.Users.Any(e => e.Id == user.Id))
-                        return NotFound();
-                    else
-                        throw;
-                }
-                return RedirectToAction(nameof(Index));
+                ModelState.AddModelError(
+                    "Email",
+                    "This email is already assigned to another user."
+                );
+                return View(user);
             }
-            return View(user);
+
+            user.UpdatedAt = DateTime.Now;
+
+            _context.Update(user);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
         }
 
         // DELETE: Confirmation page
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null) return NotFound();
+            if (id == null)
+                return NotFound();
 
             var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == id);
-            if (user == null) return NotFound();
+            if (user == null)
+                return NotFound();
 
             return View(user);
         }
@@ -116,6 +136,7 @@ namespace FarmConnectAdmin.Controllers
                 _context.Users.Remove(user);
                 await _context.SaveChangesAsync();
             }
+
             return RedirectToAction(nameof(Index));
         }
     }
