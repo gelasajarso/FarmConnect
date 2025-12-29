@@ -4,11 +4,24 @@ using FarmConnectAdmin.Models;
 
 namespace FarmConnectAdmin.Controllers;
 
+[AdminAuthorize]
 public class HomeController : Controller
 {
+    private readonly FarmConnectAdmin.Data.ApplicationDbContext _context;
+
+    public HomeController(FarmConnectAdmin.Data.ApplicationDbContext context)
+    {
+        _context = context;
+    }
+
     public IActionResult Index()
     {
-        return View();
+        var model = new DashboardViewModel
+        {
+            UserCount = _context.Users.Count(),
+            ProductCount = _context.Products.Count()
+        };
+        return View(model);
     }
 
     public IActionResult Privacy()

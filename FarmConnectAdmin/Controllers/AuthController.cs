@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using FarmConnectAdmin.Data;
+using FarmConnectAdmin.Models;
 
 public class AuthController : Controller
 {
@@ -21,11 +22,9 @@ public class AuthController : Controller
         if (!ModelState.IsValid)
             return View(model);
 
-        var admin = _context.Admins.FirstOrDefault(a =>
-            a.Username == model.Username &&
-            a.Password == model.Password);
+        var admin = _context.Admins.FirstOrDefault(a => a.Username == model.Username);
 
-        if (admin == null)
+        if (admin == null || !FarmConnectAdmin.Utilities.PasswordHelper.VerifyPassword(model.Password, admin.Password))
         {
             ModelState.AddModelError("", "Invalid username or password");
             return View(model);

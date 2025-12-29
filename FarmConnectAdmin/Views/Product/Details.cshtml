@@ -6,7 +6,7 @@
     <tr><th>Name</th><td>@Model.Name</td></tr>
     <tr><th>Description</th><td>@Model.Description</td></tr>
     <tr><th>Price</th><td>@Model.Price</td></tr>
-    <tr><th>Quantity</th><td>@Model.Quantity</td></tr>
+    <tr><th>Quantity</th><td>@Model.Quantity @Model.Unit</td></tr>
 </table>
 
 <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a>

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\HP\\Desktop\\FarmConnect\\FarmConnectAdmin\\FarmConnectAdmin.csproj": {}
+    "C:\\Users\\HP\\Desktop\\FarmConnect\\farmconnectadmin\\FarmConnectAdmin.csproj": {}
   },
   "projects": {
-    "C:\\Users\\HP\\Desktop\\FarmConnect\\FarmConnectAdmin\\FarmConnectAdmin.csproj": {
+    "C:\\Users\\HP\\Desktop\\FarmConnect\\farmconnectadmin\\FarmConnectAdmin.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\Desktop\\FarmConnect\\FarmConnectAdmin\\FarmConnectAdmin.csproj",
+        "projectUniqueName": "C:\\Users\\HP\\Desktop\\FarmConnect\\farmconnectadmin\\FarmConnectAdmin.csproj",
         "projectName": "FarmConnectAdmin",
-        "projectPath": "C:\\Users\\HP\\Desktop\\FarmConnect\\FarmConnectAdmin\\FarmConnectAdmin.csproj",
+        "projectPath": "C:\\Users\\HP\\Desktop\\FarmConnect\\farmconnectadmin\\FarmConnectAdmin.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\Desktop\\FarmConnect\\FarmConnectAdmin\\obj\\",
+        "outputPath": "C:\\Users\\HP\\Desktop\\FarmConnect\\farmconnectadmin\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config"

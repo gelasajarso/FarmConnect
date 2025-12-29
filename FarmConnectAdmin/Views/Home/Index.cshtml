@@ -1,32 +1,47 @@
-﻿<h2>Admin Dashboard</h2>
+﻿@model FarmConnectAdmin.Models.DashboardViewModel
+@{
+    ViewData["Title"] = "Dashboard";
+}
 
-<div class="row mt-4">
-    <div class="col-md-6">
-        <div class="card shadow-sm">
-            <div class="card-body">
-                <h5 class="card-title">User Management</h5>
-                <p class="card-text">
-                    Manage farmers, buyers, and logistics partners.
-                </p>
-                <a asp-controller="User" asp-action="Index"
-                   class="btn btn-primary">
-                    Manage Users
-                </a>
+<h1 class="mb-4">Dashboard</h1>
+
+<div class="d-flex gap-4 flex-wrap">
+    <!-- User Stats Card -->
+    <div class="card flex-grow-1" style="min-width: 250px; background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); color: white; border: none;">
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <h6 class="text-white-50 text-uppercase mb-2" style="font-size: 0.85rem; letter-spacing: 0.05em;">Total Users</h6>
+                <h2 class="mb-0 display-4 fw-bold">@Model.UserCount</h2>
+            </div>
+            <div style="font-size: 3rem; opacity: 0.3;">
+                <i class="fas fa-users"></i>
             </div>
         </div>
     </div>
 
-    <div class="col-md-6">
-        <div class="card shadow-sm">
-            <div class="card-body">
-                <h5 class="card-title">Product Management</h5>
-                <p class="card-text">
-                    Manage agricultural product listings.
-                </p>
-                <a asp-controller="Product" asp-action="Index"
-                   class="btn btn-success">
-                    Manage Products
-                </a>
+    <!-- Product Stats Card -->
+    <div class="card flex-grow-1" style="min-width: 250px; background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; border: none;">
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <h6 class="text-white-50 text-uppercase mb-2" style="font-size: 0.85rem; letter-spacing: 0.05em;">Active Products</h6>
+                <h2 class="mb-0 display-4 fw-bold">@Model.ProductCount</h2>
+            </div>
+            <div style="font-size: 3rem; opacity: 0.3;">
+                <i class="fas fa-box"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">System Overview</h5>
+            </div>
+            <div class="card-body text-center py-5">
+                <p class="text-muted">More charts and analytics coming soon...</p>
+                <button class="btn btn-primary"><i class="fas fa-plus me-2"></i> Generate Report</button>
             </div>
         </div>
     </div>

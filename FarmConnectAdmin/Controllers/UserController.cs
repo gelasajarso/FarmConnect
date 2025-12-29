@@ -5,6 +5,7 @@ using FarmConnectAdmin.Models;
 
 namespace FarmConnectAdmin.Controllers
 {
+    [AdminAuthorize]
     public class UserController : Controller
     {
         private readonly ApplicationDbContext _context;

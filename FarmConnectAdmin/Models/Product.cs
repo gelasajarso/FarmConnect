@@ -21,6 +21,8 @@ namespace FarmConnectAdmin.Models
         [Range(0, int.MaxValue)]
         public int Quantity { get; set; }
 
+        public string Unit { get; set; } = "kg"; // Default to kg
+
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime? UpdatedAt { get; set; }
     }

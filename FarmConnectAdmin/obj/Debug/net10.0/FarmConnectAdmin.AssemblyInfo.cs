@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FarmConnectAdmin")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+04c4be981a0a20432bce0e9f5b13ee46f07ec1ba")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+42955752a5afb2be829871ee1dd1d77dfa3dcac6")]
 [assembly: System.Reflection.AssemblyProductAttribute("FarmConnectAdmin")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FarmConnectAdmin")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

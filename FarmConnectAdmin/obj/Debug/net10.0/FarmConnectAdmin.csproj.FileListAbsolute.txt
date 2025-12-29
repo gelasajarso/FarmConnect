@@ -155,7 +155,6 @@ C:\Users\HP\Desktop\FarmConnect\FarmConnectAdmin\obj\Debug\net10.0\rjsmcshtml.ds
 C:\Users\HP\Desktop\FarmConnect\FarmConnectAdmin\obj\Debug\net10.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\HP\Desktop\FarmConnect\FarmConnectAdmin\obj\Debug\net10.0\scopedcss\bundle\FarmConnectAdmin.styles.css
 C:\Users\HP\Desktop\FarmConnect\FarmConnectAdmin\obj\Debug\net10.0\scopedcss\projectbundle\FarmConnectAdmin.bundle.scp.css
-C:\Users\HP\Desktop\FarmConnect\FarmConnectAdmin\obj\Debug\net10.0\compressed\qx192j07oh-{0}-b9sayid5wm-b9sayid5wm.gz
 C:\Users\HP\Desktop\FarmConnect\FarmConnectAdmin\obj\Debug\net10.0\compressed\5sbm6jbulz-{0}-61n19gt1b8-61n19gt1b8.gz
 C:\Users\HP\Desktop\FarmConnect\FarmConnectAdmin\obj\Debug\net10.0\compressed\gc3rno4cau-{0}-xtxxf3hu2r-xtxxf3hu2r.gz
 C:\Users\HP\Desktop\FarmConnect\FarmConnectAdmin\obj\Debug\net10.0\compressed\42kw5dz231-{0}-bqjiyaj88i-bqjiyaj88i.gz
@@ -232,3 +231,4 @@ C:\Users\HP\Desktop\FarmConnect\FarmConnectAdmin\bin\Debug\net10.0\FarmConnectAd
 C:\Users\HP\Desktop\FarmConnect\FarmConnectAdmin\bin\Debug\net10.0\FarmConnectAdmin.runtimeconfig.json
 C:\Users\HP\Desktop\FarmConnect\FarmConnectAdmin\obj\Debug\net10.0\FarmConnectAdmin.genruntimeconfig.cache
 C:\Users\HP\Desktop\FarmConnect\FarmConnectAdmin\obj\Debug\net10.0\ref\FarmConnectAdmin.dll
+C:\Users\HP\Desktop\FarmConnect\FarmConnectAdmin\obj\Debug\net10.0\compressed\qx192j07oh-{0}-3dxsja9nw4-3dxsja9nw4.gz
