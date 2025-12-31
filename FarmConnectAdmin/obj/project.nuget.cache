@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "y1RumlUnb10=",
+  "dgSpecHash": "a3wNg+yRkcg=",
   "success": true,
-  "projectFilePath": "C:\\Users\\HP\\Desktop\\FarmConnect\\farmconnectadmin\\FarmConnectAdmin.csproj",
+  "projectFilePath": "C:\\Users\\HP\\Desktop\\FarmConnect\\FarmConnectAdmin\\FarmConnectAdmin.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\HP\\.nuget\\packages\\azure.core\\1.47.1\\azure.core.1.47.1.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\azure.identity\\1.14.2\\azure.identity.1.14.2.nupkg.sha512",
@@ -60,5 +60,15 @@
     "C:\\Users\\HP\\.nuget\\packages\\system.security.permissions\\9.0.0\\system.security.permissions.9.0.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\system.windows.extensions\\9.0.0\\system.windows.extensions.9.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1900",
+      "level": "Warning",
+      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://api.nuget.org/v3/index.json.",
+      "projectPath": "C:\\Users\\HP\\Desktop\\FarmConnect\\FarmConnectAdmin\\FarmConnectAdmin.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\HP\\Desktop\\FarmConnect\\FarmConnectAdmin\\FarmConnectAdmin.csproj",
+      "targetGraphs": []
+    }
+  ]
 }
