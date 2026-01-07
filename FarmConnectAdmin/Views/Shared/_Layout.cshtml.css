@@ -1,5 +1,7 @@
-﻿/* Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
+﻿/* Please see documentation at
+   https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
+   for details on configuring this project to bundle and minify static web assets.
+*/
 
 a.navbar-brand {
   white-space: normal;
@@ -11,27 +13,33 @@ a {
   color: #0077cc;
 }
 
+/* Buttons */
 .btn-primary {
-  color: #fff;
+  color: #ffffff;
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
 
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
+/* Navigation */
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: #ffffff;
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
 
+/* Borders */
 .border-top {
   border-top: 1px solid #e5e5e5;
 }
+
 .border-bottom {
   border-bottom: 1px solid #e5e5e5;
 }
 
+/* Utilities */
 .box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
 }
 
 button.accept-policy {
@@ -39,6 +47,7 @@ button.accept-policy {
   line-height: inherit;
 }
 
+/* Footer */
 .footer {
   position: absolute;
   bottom: 0;

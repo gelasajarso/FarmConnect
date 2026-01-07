@@ -219,8 +219,6 @@ C:\Users\HP\Desktop\FarmConnect\farmconnectadmin\obj\Debug\net10.0\compressed\v1
 C:\Users\HP\Desktop\FarmConnect\farmconnectadmin\obj\Debug\net10.0\compressed\ispsji5n2o-{0}-muycvpuwrr-muycvpuwrr.gz
 C:\Users\HP\Desktop\FarmConnect\farmconnectadmin\obj\Debug\net10.0\compressed\x65srxjulr-{0}-87fc7y1x7t-87fc7y1x7t.gz
 C:\Users\HP\Desktop\FarmConnect\farmconnectadmin\obj\Debug\net10.0\compressed\ke4jom83y3-{0}-mlv21k5csn-mlv21k5csn.gz
-C:\Users\HP\Desktop\FarmConnect\farmconnectadmin\obj\Debug\net10.0\compressed\1cfyavwdjz-{0}-43z9mc6pc6-43z9mc6pc6.gz
-C:\Users\HP\Desktop\FarmConnect\farmconnectadmin\obj\Debug\net10.0\compressed\w2uu54auld-{0}-43z9mc6pc6-43z9mc6pc6.gz
 C:\Users\HP\Desktop\FarmConnect\farmconnectadmin\obj\Debug\net10.0\staticwebassets.build.json
 C:\Users\HP\Desktop\FarmConnect\farmconnectadmin\obj\Debug\net10.0\staticwebassets.build.json.cache
 C:\Users\HP\Desktop\FarmConnect\farmconnectadmin\obj\Debug\net10.0\staticwebassets.development.json
@@ -233,3 +231,5 @@ C:\Users\HP\Desktop\FarmConnect\farmconnectadmin\obj\Debug\net10.0\FarmConnectAd
 C:\Users\HP\Desktop\FarmConnect\farmconnectadmin\obj\Debug\net10.0\FarmConnectAdmin.genruntimeconfig.cache
 C:\Users\HP\Desktop\FarmConnect\farmconnectadmin\obj\Debug\net10.0\ref\FarmConnectAdmin.dll
 C:\Users\HP\Desktop\FarmConnect\FarmConnectAdmin\bin\Debug\net10.0\BCrypt.Net-Next.dll
+C:\Users\HP\Desktop\FarmConnect\FarmConnectAdmin\obj\Debug\net10.0\compressed\1cfyavwdjz-{0}-sf4gpd8am1-sf4gpd8am1.gz
+C:\Users\HP\Desktop\FarmConnect\FarmConnectAdmin\obj\Debug\net10.0\compressed\w2uu54auld-{0}-sf4gpd8am1-sf4gpd8am1.gz
