@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using FarmConnectAdmin.Data;
 using FarmConnectAdmin.Models;
+using FarmConnectAdmin.Utilities;
 
 namespace FarmConnectAdmin.Controllers
 {
@@ -15,21 +16,24 @@ namespace FarmConnectAdmin.Controllers
             _context = context;
         }
 
-        // READ: List all users
-        public async Task<IActionResult> Index()
+        // READ: List all users with Pagination
+        public async Task<IActionResult> Index(int? pageNumber)
         {
-            return View(await _context.Users.ToListAsync());
+            var users = _context.Users.AsNoTracking().OrderByDescending(u => u.CreatedAt);
+            int pageSize = 10;
+            return View(await PaginatedList<User>.CreateAsync(users, pageNumber ?? 1, pageSize));
         }
 
         // READ: User details
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
-                return NotFound();
+            if (id == null) return NotFound();
 
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == id);
-            if (user == null)
-                return NotFound();
+            var user = await _context.Users
+                .AsNoTracking()
+                .FirstOrDefaultAsync(m => m.Id == id);
+
+            if (user == null) return NotFound();
 
             return View(user);
         }
@@ -48,15 +52,9 @@ namespace FarmConnectAdmin.Controllers
             if (!ModelState.IsValid)
                 return View(user);
 
-            bool emailExists = await _context.Users
-                .AnyAsync(u => u.Email == user.Email);
-
-            if (emailExists)
+            if (await EmailExists(user.Email))
             {
-                ModelState.AddModelError(
-                    "Email",
-                    "This email is already registered with another role."
-                );
+                ModelState.AddModelError("Email", "This email is already registered.");
                 return View(user);
             }
 
@@ -72,43 +70,41 @@ namespace FarmConnectAdmin.Controllers
         // UPDATE: Show edit form
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null)
-                return NotFound();
+            if (id == null) return NotFound();
 
             var user = await _context.Users.FindAsync(id);
-            if (user == null)
-                return NotFound();
+            if (user == null) return NotFound();
 
             return View(user);
         }
 
-        // UPDATE: Save changes (UPDATED – EDGE CASE HANDLED)
+        // UPDATE: Save changes
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, User user)
         {
-            if (id != user.Id)
-                return NotFound();
+            if (id != user.Id) return NotFound();
 
             if (!ModelState.IsValid)
                 return View(user);
 
-            bool emailExists = await _context.Users.AnyAsync(u =>
-                u.Email == user.Email && u.Id != user.Id);
-
-            if (emailExists)
+            if (await EmailExists(user.Email, user.Id))
             {
-                ModelState.AddModelError(
-                    "Email",
-                    "This email is already assigned to another user."
-                );
+                ModelState.AddModelError("Email", "This email is already taken.");
                 return View(user);
             }
 
-            user.UpdatedAt = DateTime.Now;
-
-            _context.Update(user);
-            await _context.SaveChangesAsync();
+            try 
+            {
+                user.UpdatedAt = DateTime.Now;
+                _context.Update(user);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!UserExists(user.Id)) return NotFound();
+                else throw;
+            }
 
             return RedirectToAction(nameof(Index));
         }
@@ -116,12 +112,13 @@ namespace FarmConnectAdmin.Controllers
         // DELETE: Confirmation page
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null)
-                return NotFound();
+            if (id == null) return NotFound();
 
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == id);
-            if (user == null)
-                return NotFound();
+            var user = await _context.Users
+                .AsNoTracking()
+                .FirstOrDefaultAsync(m => m.Id == id);
+
+            if (user == null) return NotFound();
 
             return View(user);
         }
@@ -139,6 +136,16 @@ namespace FarmConnectAdmin.Controllers
             }
 
             return RedirectToAction(nameof(Index));
+        }
+
+        private async Task<bool> EmailExists(string email, int? excludeId = null)
+        {
+            return await _context.Users.AnyAsync(u => u.Email == email && (!excludeId.HasValue || u.Id != excludeId));
+        }
+
+        private bool UserExists(int id)
+        {
+            return _context.Users.Any(e => e.Id == id);
         }
     }
 }

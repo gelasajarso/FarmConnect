@@ -1,5 +1,4 @@
-using System.Security.Cryptography;
-using System.Text;
+using BCrypt.Net;
 
 namespace FarmConnectAdmin.Utilities
 {
@@ -7,22 +6,12 @@ namespace FarmConnectAdmin.Utilities
     {
         public static string HashPassword(string password)
         {
-            using (var sha256 = SHA256.Create())
-            {
-                var bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
-                var builder = new StringBuilder();
-                for (int i = 0; i < bytes.Length; i++)
-                {
-                    builder.Append(bytes[i].ToString("x2"));
-                }
-                return builder.ToString();
-            }
+            return BCrypt.Net.BCrypt.HashPassword(password);
         }
 
         public static bool VerifyPassword(string inputPassword, string storedHash)
         {
-            var hashOfInput = HashPassword(inputPassword);
-            return StringComparer.OrdinalIgnoreCase.Compare(hashOfInput, storedHash) == 0;
+            return BCrypt.Net.BCrypt.Verify(inputPassword, storedHash);
         }
     }
 }

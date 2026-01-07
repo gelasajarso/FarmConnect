@@ -9,9 +9,9 @@ namespace FarmConnectAdmin.Models
 
         [Required]
         [StringLength(150)]
-        public string Name { get; set; }
+        public required string Name { get; set; }
 
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         [Required]
         [Range(0.01, 100000)]

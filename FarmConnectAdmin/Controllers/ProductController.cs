@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using FarmConnectAdmin.Data;
 using FarmConnectAdmin.Models;
-
+using FarmConnectAdmin.Utilities;
 
 namespace FarmConnectAdmin.Controllers
 {
@@ -16,10 +16,12 @@ namespace FarmConnectAdmin.Controllers
             _context = context;
         }
 
-        // READ: List all products
-        public async Task<IActionResult> Index()
+        // READ: List all products with Pagination
+        public async Task<IActionResult> Index(int? pageNumber)
         {
-            return View(await _context.Products.ToListAsync());
+            var products = _context.Products.AsNoTracking().OrderBy(p => p.Name);
+            int pageSize = 10;
+            return View(await PaginatedList<Product>.CreateAsync(products, pageNumber ?? 1, pageSize));
         }
 
         // READ: Product details
@@ -27,7 +29,10 @@ namespace FarmConnectAdmin.Controllers
         {
             if (id == null) return NotFound();
 
-            var product = await _context.Products.FirstOrDefaultAsync(p => p.Id == id);
+            var product = await _context.Products
+                .AsNoTracking()
+                .FirstOrDefaultAsync(m => m.Id == id);
+
             if (product == null) return NotFound();
 
             return View(product);
@@ -81,7 +86,7 @@ namespace FarmConnectAdmin.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!_context.Products.Any(e => e.Id == product.Id))
+                    if (!ProductExists(product.Id))
                         return NotFound();
                     else
                         throw;
@@ -96,7 +101,10 @@ namespace FarmConnectAdmin.Controllers
         {
             if (id == null) return NotFound();
 
-            var product = await _context.Products.FirstOrDefaultAsync(p => p.Id == id);
+            var product = await _context.Products
+                .AsNoTracking()
+                .FirstOrDefaultAsync(m => m.Id == id);
+
             if (product == null) return NotFound();
 
             return View(product);
@@ -114,6 +122,11 @@ namespace FarmConnectAdmin.Controllers
                 await _context.SaveChangesAsync();
             }
             return RedirectToAction(nameof(Index));
+        }
+
+        private bool ProductExists(int id)
+        {
+            return _context.Products.Any(e => e.Id == id);
         }
     }
 }

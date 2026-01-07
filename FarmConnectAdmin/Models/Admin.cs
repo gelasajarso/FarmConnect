@@ -6,9 +6,9 @@ public class Admin
 
     [Required]
     [MaxLength(50)]
-    public string Username { get; set; }
+    public required string Username { get; set; }
 
     [Required]
     [MaxLength(100)]
-    public string Password { get; set; }
+    public required string Password { get; set; }
 }

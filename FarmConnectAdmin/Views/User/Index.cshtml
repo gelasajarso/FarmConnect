@@ -1,4 +1,4 @@
-@model IEnumerable<FarmConnectAdmin.Models.User>
+@model FarmConnectAdmin.Utilities.PaginatedList<FarmConnectAdmin.Models.User>
 
 @{
     ViewData["Title"] = "User Management";
@@ -6,11 +6,13 @@
 
 <div class="card">
     <div class="card-header">
-        <h5 class="mb-0"><i class="fas fa-users me-2"></i> User Management</h5>
-        <a asp-action="Create" class="btn btn-primary"><i class="fas fa-plus me-2"></i> Add New User</a>
+        <div class="d-flex justify-content-between align-items-center">
+            <h5 class="mb-0"><i class="fas fa-users me-2"></i> User Management</h5>
+            <a asp-action="Create" class="btn btn-primary"><i class="fas fa-plus me-2"></i> Add New User</a>
+        </div>
     </div>
     <div class="table-responsive">
-        <table class="table">
+        <table class="table mb-0">
             <thead>
                 <tr>
                     <th>Full Name</th>
@@ -37,5 +39,26 @@
                 }
             </tbody>
         </table>
+    </div>
+
+    @{
+        var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+        var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+    }
+
+    <div class="card-footer d-flex justify-content-between align-items-center">
+        <span class="text-muted small">Page @Model.PageIndex of @Model.TotalPages</span>
+        <div>
+            <a asp-action="Index"
+               asp-route-pageNumber="@(Model.PageIndex - 1)"
+               class="btn btn-sm btn-outline-secondary @prevDisabled">
+                <i class="fas fa-chevron-left me-1"></i> Previous
+            </a>
+            <a asp-action="Index"
+               asp-route-pageNumber="@(Model.PageIndex + 1)"
+               class="btn btn-sm btn-outline-secondary @nextDisabled">
+                Next <i class="fas fa-chevron-right ms-1"></i>
+            </a>
+        </div>
     </div>
 </div>
