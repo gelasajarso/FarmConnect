@@ -1,4 +1,15 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿// Mobile Sidebar Toggle
+$(document).ready(function () {
+    $('#sidebarToggle').on('click', function () {
+        $('.sidebar').toggleClass('active');
+    });
 
-// Write your JavaScript code.
+    // Close sidebar when clicking outside on mobile
+    $(document).on('click', function (e) {
+        if ($(window).width() < 768) {
+            if (!$(e.target).closest('.sidebar').length && !$(e.target).closest('#sidebarToggle').length) {
+                $('.sidebar').removeClass('active');
+            }
+        }
+    });
+});

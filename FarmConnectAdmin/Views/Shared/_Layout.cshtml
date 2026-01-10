@@ -33,7 +33,7 @@
                     </div>
                 </div>
                 <div class="sidebar-footer">
-                    <a class="nav-link" asp-controller="Auth" asp-action="Logout" style="color: var(--danger);">
+                    <a class="nav-link text-danger" asp-controller="Auth" asp-action="Logout">
                         <i class="fas fa-sign-out-alt"></i> Logout
                     </a>
                 </div>
@@ -41,12 +41,17 @@
 
             <main class="main-wrapper">
                 <header class="top-header">
-                    <div class="page-title-wrapper">
-                        <!-- Breadcrumbs or small title could go here -->
+                    <div class="d-flex align-items-center">
+                        <button id="sidebarToggle" class="btn btn-outline-secondary border-0 d-md-none me-3">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                        <div class="page-title-wrapper">
+                            <!-- Breadcrumbs or small title can go here -->
+                        </div>
                     </div>
                     <div class="user-menu">
                         <div class="d-flex align-center gap-2">
-                            <div style="width: 35px; height: 35px; background: var(--primary-light); color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">
+                            <div class="user-avatar">
                                 @Context.Session.GetString("Admin")?.Substring(0, 1).ToUpper()
                             </div>
                             <span style="font-weight: 500;">@Context.Session.GetString("Admin")</span>
@@ -64,8 +69,8 @@
         <!-- Login Layout -->
         <div class="login-body">
             <div class="login-aside">
-                <h1 style="font-size: 3rem; margin-bottom: 1rem;">FarmConnect</h1>
-                <p style="font-size: 1.25rem; opacity: 0.9;">Manage your farm inventory and users with ease.</p>
+                <h1 class="login-title">FarmConnect</h1>
+                <p class="login-subtitle">Manage your farm inventory and users with ease.</p>
             </div>
             <div class="login-content">
                 @RenderBody()
