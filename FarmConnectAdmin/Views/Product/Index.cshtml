@@ -4,15 +4,17 @@
     ViewData["Title"] = "Product Management";
 }
 
-<div class="mb-4 d-flex justify-content-between align-items-center">
+<div class="mb-4 d-flex justify-content-between align-items-center w-100">
     <div>
         <h1 class="page-title mb-0">Products</h1>
-        <p class="text-muted">Manage your inventory and pricing</p>
+        <p class="text-muted">Manage Products                                                   </p>
     </div>
-    <a asp-action="Create" class="btn btn-primary"><i class="fas fa-plus"></i> Add Product</a>
 </div>
 
 <div class="card">
+    <div class="card-header border-0 bg-transparent py-3 d-flex justify-content-end">
+        <a asp-action="Create" class="btn btn-primary"><i class="fas fa-plus"></i> Add Product</a>
+    </div>
     @if (Model.Any())
     {
         <div class="table-container">

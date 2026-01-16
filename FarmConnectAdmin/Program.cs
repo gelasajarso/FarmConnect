@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add MVC
 builder.Services.AddControllersWithViews();
 
-// ✅ Add Session
+// Add Session
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(30);
@@ -36,7 +36,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-// ✅ Enable Session
+// Enable Session
 app.UseSession();
 
 app.UseAuthorization();

@@ -7,6 +7,7 @@ namespace FarmConnectAdmin.Models
         public int Id { get; set; }
 
         [Required]
+        [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "Use letters only please")]
         public required string FullName { get; set; }
 
         [Required]
@@ -16,7 +17,7 @@ namespace FarmConnectAdmin.Models
         [Required]
         public required string Role { get; set; }
 
-        // ✅ NULL-SAFE
+        //  NULL-SAFE
         public DateTime? CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
     }
